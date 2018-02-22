@@ -30,6 +30,10 @@
             height: 100px;
             width: 100px;
         }
+        
+        #grow {
+            margin:40px;
+        }
     </style>
 </head>
 
@@ -40,6 +44,8 @@
                 <h1>Kurs Reacttt!</h1>
 
                 <div id="root"></div>
+                <button class="btn btn default" id="grow"> + </button>
+                <button class="btn btn default" id="shrink"> - </button>
             </div>
         </div>
     </div>
@@ -47,6 +53,8 @@
     <script type="text/javascript">
         var div = React.DOM.div; /*biblioteka react ma DOM, rozne elelemnty typu h1, div etc*/
 
+        var font_size =3; /*tworzymy zmienna z rozmiarem font_size*/
+        
         var course = div({
                 id: 'kurs',
                 className: 'media-course'
@@ -62,12 +70,20 @@
                     className: 'media-body' /*w media-body jest element h3 i p*/
                 },
                 React.createElement('h3', {
-                    className: 'media-heading'
+                    className: 'media-heading', style:{fontSize: font_size + 'em'}
                 }, 'Kurs React'),
                 React.createElement('p', {}, 'React od podstaw')
             )
         )
 
+        document.getElementById('grow').addEventListener('click', function(){
+            font_size = font_size + 1;
+        })
+        
+          document.getElementById('shrink').addEventListener('click', function(){
+            font_size = font_size === 1 ? font_size : (font_size - 1); /*jesli font_size jest rowne 1 to pozostaw jeden a jesli nie jest rowne 1 to pomniejsz o 1 => w ten sposob nie bedzie wielkosci 0*/
+        })
+        
         ReactDOM.render(course, document.getElementById('root'))
     </script>
 </body>
