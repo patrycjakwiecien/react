@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-          <link rel="stylesheet" href="../react/style/style.css">
     <title>Document</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        
+        h1{
+           margin:40px; 
+        }
+        
+        .media-course {
+            padding: 10px;
+            margin:40px;
+            border: 1px solid gray;
+        }
+
+        .media-object {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="conatiner">
-      <div class="row">
-       <div class="col-xs-12">
-    <h1>Kurs React!</h1></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Kurs Reacttt!</h1>
+
+                <div id="root"></div>
+            </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var div = React.DOM.div; /*biblioteka react ma DOM, rozne elelemnty typu h1, div etc*/
+
+        var course = div({
+                id: 'kurs',
+                className: 'media-course'
+            },
+            div({
+                className: 'media-left'
+            }, React.createElement('img', {
+                className: 'media-object',
+                alt: 'obrazek',
+                src: 'http://ulubionykolor.pl/images/normal/14032013/7e0d11cfbc4b4b870ed9e990614032013124851.jpg'
+            })),
+            div({
+                    className: 'media-body' /*w media-body jest element h3 i p*/
+                },
+                React.createElement('h3', {
+                    className: 'media-heading'
+                }, 'Kurs React'),
+                React.createElement('p', {}, 'React od podstaw')
+            )
+        )
+
+        ReactDOM.render(course, document.getElementById('root'))
+    </script>
 </body>
+
 </html>
