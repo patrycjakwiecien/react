@@ -10,82 +10,46 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
 
 
-    <style>
-        
-        h1{
-           margin:40px; 
-        }
-        
-        .media-course {
-            padding: 10px;
-            margin:40px;
-            border: 1px solid gray;
-        }
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 
-        .media-object {
-            height: 100px;
-            width: 100px;
-        }
-        
-        #grow {
-            margin:40px;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="conatiner">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1>Kurs Reacttt!</h1>
-
-                <div id="root"></div>
-                <button class="btn btn default" id="grow"> + </button>
-                <button class="btn btn default" id="shrink"> - </button>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="root"></div>
+                </div>
             </div>
         </div>
+
+        <footer class="footer">
+
+            <div class="container">
+                <p>
+
+                </p>
+            </div>
+
+        </footer>
     </div>
+    
+    
+    <script type="text/babel" src="app.jsx">/*biblioteka wykrywa element, ktory jest napisany ponizej, rozpoznac, ze jest to typ-tekst babel i przekonwertowac javascript ponizej z obsluga JSX do zwyklego javascriptu, ktory bedzie dzialal na wszytskich przegladarkach*/</script>
 
-    <script type="text/javascript">
-        var div = React.DOM.div; /*biblioteka react ma DOM, rozne elelemnty typu h1, div etc*/
 
-        var font_size =3; /*tworzymy zmienna z rozmiarem font_size*/
-        
-        var course = div({
-                id: 'kurs',
-                className: 'media-course'
-            },
-            div({
-                className: 'media-left'
-            }, React.createElement('img', {
-                className: 'media-object',
-                alt: 'obrazek',
-                src: 'http://ulubionykolor.pl/images/normal/14032013/7e0d11cfbc4b4b870ed9e990614032013124851.jpg'
-            })),
-            div({
-                    className: 'media-body' /*w media-body jest element h3 i p*/
-                },
-                React.createElement('h3', {
-                    className: 'media-heading', style:{fontSize: font_size + 'em'}
-                }, 'Kurs React'),
-                React.createElement('p', {}, 'React od podstaw')
-            )
-        )
 
-        document.getElementById('grow').addEventListener('click', function(){
-            font_size = font_size + 1;
-        })
-        
-          document.getElementById('shrink').addEventListener('click', function(){
-            font_size = font_size === 1 ? font_size : (font_size - 1); /*jesli font_size jest rowne 1 to pozostaw jeden a jesli nie jest rowne 1 to pomniejsz o 1 => w ten sposob nie bedzie wielkosci 0*/
-        })
-        
-        ReactDOM.render(course, document.getElementById('root'))
-    </script>
+
+    
+
+
+
+
 </body>
 
 </html>
