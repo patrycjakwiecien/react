@@ -11,21 +11,6 @@
 //jesli CourseMedia jest przed danymi i jest objety w funkcje, ktora zwraca ten element, kazdy elelemnt moze byc danymi, moze byc przypisany do zmiennej i zwrocony z funkcji, data to atrybut, parametr tej funkcji
 
     
-var data = {
-        "id": 0,
-		"title": "Kurs Programowanie w jQuery - w Praktyce",
-		"description": "Poznaj jQuery, czyli najbardziej popularną bibliotekę JavaScript na Świecie! Z jQuery korzystają niemal wszystkie nowoczesne serwisy WWW, a nasz Kurs stanowi niezwykle praktyczne i wyczerpujące omówienie tej biblioteki od podstaw, aż po bardziej zaawansowane techniki. Jeśli znasz już HTML i CSS oraz przynajmniej podstawy JavaScript, jQuery to kolejna obowiązkowa pozycja na Twojej drodze do tworzenia świetnych serwisów internetowych. ",
-		"image": "http://eduweb.pl/Images/Training/miniaturka-do-opisu-kursu_27ded9b2-af48-4118-a02a-e35fe950a9be.png",
-		"author": "Piotr Palarz",
-		"duration": "8 godzin",
-		"price": 99.00,
-		"rating": 4,
-		"categories": ["JavaScript", "jQuery"],
-		"is_new": true,
-        "is_new": true,
-        "is_promo": true
-    }
-
 
 
 var CourseMedia = function(data){
@@ -115,14 +100,98 @@ var CourseDetails = function(data) {
 }
     
     
+    
+    
+    
+    var CoursesList = function(list){ 
+        return
+        (
+        <div>
+        {list.map(function(data){
+                    return <div key={data.id}>{Course(data)
+                }</div>
+                })}
+        </div>
+    )
+    
+    }
+    
+    /* key miesci sie w divie a course jest renderowany tez w srodku tego diva*/
+        /* mamy wygenerowana liste kursow na podstawie tablicy javascriptowej, renderuje nam sie lista elelemntow, kazdy z elelemnytow ma przypisany unikalny klucz a jego zawartosc jest generowana dynamicznie na podstawie szablonu course*/
+    
+    
+    
+    var list = courses_data.slice(0,3);
+    
+    ReactDOM.render(CoursesList(list), document.getElementById('root'))
+
+
+
+
+
 
     
+    /* wybieramy trzy elementy z courses_data i one trafia do function(list)
     
     
+    {list.map(function(data){
+                    return Course(data)
+                })}
+        </div> ----------> chcemy wyrenderowac cala liste, kazdy element listy zostanie zamieniony na nasz szablon course i te dane sa przekazane do course
+    
+    */
 
+
+
+
+
+    
+    /*w srodku funkcji sa dynamiczne dane, te dane sa latwe do zaktualizowania,
+jeli mamy dynamiczne dane, dane, zmienne to najlepiej zawsze uzyc funkcji zeby byly latwe do zaktualizowania
+
+--> do zmiennej CoursesList przekazujemy dane courses_data*/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*var CoursesList = function(list){ 
+        return
+        (
+        <div>
+        {Course(courses_data[0])} 
+        {Course(courses_data[1])}
+        {Course(courses_data[2])}
+        </div>
+    )
+    
+    }
+    ReactDOM.render(CoursesList(courses_data), document.getElementById('root')) */
+    
+    
+    /*w srodku funkcji sa dynamiczne dane, te dane sa latwe do zaktualizowania,
+jeli mamy dynamiczne dane, dane, zmienne to najlepiej zawsze uzyc funkcji zeby byly latwe do zaktualizowania
+
+--> do zmiennej CoursesList przekazujemy dane courses_data*/
+    
+    
+    /*ReactDOM.render(<div>
+        {Course(courses_data[0])} 
+        {Course(courses_data[1])}
+        {Course(courses_data[2])}
+        </div>, document.getElementById('root'))
         
-    ReactDOM.render(Course(data), document.getElementById('root'))
-/*Renderujemy elelemnt course, bo jest var course*/
+    Przekazanie elementu jsx, czyli <div></div> jako argumentu do funkcji*/
+    
+    
+    
+    
+    
+
 
 
     /*<h3>{'Temat Kursu' + 'Dynamiczny'}</h3> --> w klamrach umieszczamy tresc dynamiczna, wszytsko w nich to wyrazenie javascriptowe, dwa stringi*/
