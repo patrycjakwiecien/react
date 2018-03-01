@@ -1,5 +1,19 @@
 
-    
+/*var data = {
+        "id": 0,
+		"title": "Kurs Programowanie w jQuery - w Praktyce",
+		"description": "Poznaj jQuery, czyli najbardziej popularną bibliotekę JavaScript na Świecie! Z jQuery korzystają niemal wszystkie nowoczesne serwisy WWW, a nasz Kurs stanowi niezwykle praktyczne i wyczerpujące omówienie tej biblioteki od podstaw, aż po bardziej zaawansowane techniki. Jeśli znasz już HTML i CSS oraz przynajmniej podstawy JavaScript, jQuery to kolejna obowiązkowa pozycja na Twojej drodze do tworzenia świetnych serwisów internetowych. ",
+		"image": "http://eduweb.pl/Images/Training/miniaturka-do-opisu-kursu_27ded9b2-af48-4118-a02a-e35fe950a9be.png",
+		"author": "Piotr Palarz",
+		"duration": "8 godzin",
+		"price": 99.00,
+		"rating": 4,
+		"categories": ["JavaScript", "jQuery"],
+		"is_new": true,
+        "is_new": true,
+        "is_promo": true
+    }*/
+
     /* var elem = React.createElement('h1',null, 'Witaj w kursie React!') */
 
 
@@ -14,13 +28,13 @@
 
 
 var CourseMedia = function(data){
-    return <img src = {data.image} alt="cover" />;
+    return <img src={data.image} alt="cover" />;
+
 }
 
     
 var NewLabel = function(data) { 
-    return
-    data.is_new? <span className="label label-default">Nowy!</span>: null;
+    return data.is_new? <span className="label label-default">Nowy!</span>: null;
 }
 
 var CoursePromoLabel = function(data) {  
@@ -55,7 +69,6 @@ var CourseDetails = function(data) {
 </table>
 )
 }
-
 
 
 //wartosto przy takim, kodzie jak przy button powyzej umiescic nawiasy
@@ -103,28 +116,24 @@ var CourseDetails = function(data) {
     
     
     
-    var CoursesList = function(list){ 
-        return
-        (
-        <div>
-        {list.map(function(data){
-                    return <div key={data.id}>{Course(data)
-                }</div>
-                })}
-        </div>
-    )
-    
-    }
+var CoursesList = function(list){
+	return (
+		<div>
+			{list.map(function(data){
+				return <div key={data.id}>{ Course(data) }</div>
+			})}
+		</div>
+	)
+}
     
     /* key miesci sie w divie a course jest renderowany tez w srodku tego diva*/
         /* mamy wygenerowana liste kursow na podstawie tablicy javascriptowej, renderuje nam sie lista elelemntow, kazdy z elelemnytow ma przypisany unikalny klucz a jego zawartosc jest generowana dynamicznie na podstawie szablonu course*/
     
+
     
-    
-    var list = courses_data.slice(0,3);
+    var list = courses_data.slice(0,9);
     
     ReactDOM.render(CoursesList(list), document.getElementById('root'))
-
 
 
 
